@@ -28,6 +28,10 @@ func MethodFromAst(decl *ast.FuncDecl) *Method {
 	return &Method{Decl: decl}
 }
 
+func (m *Method) IsStructMethod() bool {
+	return m.Decl.Recv != nil && len(m.Decl.Recv.List) > 0
+}
+
 func (m *Method) SetName(name string) *Method {
 	m.Decl.Name = ast.NewIdent(name)
 

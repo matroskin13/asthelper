@@ -67,3 +67,9 @@ func (b *Body) GetAssigment(varName string) *Assigment {
 func (b *Body) Insert(st ast.Stmt) {
 	b.ast.List = append(b.ast.List, st)
 }
+
+func (b *Body) InsertBodyBefore(inserted *Body) *Body {
+	b.ast.List = append(inserted.ast.List, b.ast.List...)
+
+	return b
+}

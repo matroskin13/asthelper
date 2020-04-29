@@ -5,6 +5,15 @@ import (
 	"testing"
 )
 
+func TestFile_GetMethod(t *testing.T) {
+	node := parseExampleFile()
+	file := NewFileFromAst(node)
+
+	getName := file.GetMethod("GetName")
+
+	assert.Equal(t, false, getName.IsStructMethod())
+}
+
 func TestFile_GetStruct(t *testing.T) {
 	n := parseExampleFile()
 	f := NewFileFromAst(n)
