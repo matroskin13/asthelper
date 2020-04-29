@@ -1,4 +1,4 @@
-module asthelper
+module github.com/matroskin13/asthelper
 
 go 1.14
 
