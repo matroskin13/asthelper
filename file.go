@@ -240,6 +240,10 @@ func (f *File) GetStruct(name string) *Struct {
 								methods = append(methods, funDecl)
 							}
 						}
+					case *ast.Ident:
+						if fieldType.Name == name {
+							methods = append(methods, funDecl)
+						}
 					}
 				}
 			}

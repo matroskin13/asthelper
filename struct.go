@@ -97,6 +97,16 @@ func (s *Struct) AddField(name string, paramType string, isPointer bool) *Struct
 	return s
 }
 
+func (s *Struct) GetMethods() []*Method {
+	var methods []*Method
+
+	for _, method := range s.methods {
+		methods = append(methods, MethodFromAst(method))
+	}
+
+	return methods
+}
+
 func (s *Struct) GetMethod(name string) *Method {
 	for _, method := range s.methods {
 		if method.Name.Name == name {
