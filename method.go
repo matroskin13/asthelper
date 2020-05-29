@@ -70,8 +70,10 @@ func (m *Method) ClearResult() *Method {
 func (m *Method) AddParam(name, paramType string, isPointer bool) *Method {
 	var field ast.Field
 
-	field.Names = []*ast.Ident{
-		{Name: name},
+	if name != "" {
+		field.Names = []*ast.Ident{
+			{Name: name},
+		}
 	}
 	if isPointer {
 		field.Type = &ast.StarExpr{X: &ast.BasicLit{Value: paramType}}
