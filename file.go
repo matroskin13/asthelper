@@ -121,6 +121,12 @@ func (f *File) AddStruct(st *Struct) *File {
 	return f
 }
 
+func (f *File) AddInterface(i *Interface) *File {
+	f.ast.Decls = append(f.ast.Decls, i.ast)
+
+	return f
+}
+
 func (f *File) AddImport(path string, alias string) *File {
 	return f.addImport(fmt.Sprintf("%q", path), alias)
 }
